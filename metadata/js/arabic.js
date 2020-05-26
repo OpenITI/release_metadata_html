@@ -130,7 +130,7 @@ $(document).ready(function () {
                     cellContent += '<strong><a href="' + row['url'] + '" target="_blank" title="' + row['url'] + '"> ' + data + '</a><br/></strong>'
 
                     // add Arabic title of the book
-                    cellContent += row['title'];
+                    // cellContent += row['title_ar'];
 
                     // add info about the primary/secondary status of the version:
                     if (row['status'] === 'pri') {
@@ -197,7 +197,8 @@ $(document).ready(function () {
                     var i = data.indexOf('.')
                     data = data.substring(i + 1);
                     data = data.replace(/([A-Z])/g, ' $1').trim();
-                    cellContent += data + '</a><br/></strong>' + row['title'];
+                    //cellContent += data + '</a><br/></strong>' + row['title'];
+                    cellContent += data + '</a><br/></strong>' + row['title_ar'];
 
 
                     //
@@ -235,7 +236,7 @@ $(document).ready(function () {
             },
 
             {
-                "data": "author",
+                "data": "author_lat",
                 "render": function (data, type, row, meta) {
 
                     if (type === 'rawExport') {
@@ -253,8 +254,11 @@ $(document).ready(function () {
                     var authorDiv = "<div class='author text-wrap'>" + authorLink + "<br/>";
 
                     // add the Arabic version(s) of the author name:
-                    if (d.split("::").length > 1) {
+                    /*if (d.split("::").length > 1) {
                         authorDiv += d.split("::")[1];
+                    }*/
+                    if (row["author_ar"].length > 0) {
+                      authorDiv += row["author_ar"];
                     }
 
                     // add links to GitHub issues related to the author uri:
