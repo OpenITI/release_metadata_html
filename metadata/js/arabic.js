@@ -302,7 +302,7 @@ $(document).ready(function () {
             },
 
             {
-                "data": "length",
+                "data": "tok_length",
                 render: function (data) {
                     return "<div class='text-wrap'>" + checknull(data) + "</div>";
                 }
